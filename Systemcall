@@ -9,7 +9,7 @@ Makefile调用usys.pl生成usys.S,通过ecall进入kernel，通过a7表明调用
 所以要在usys.pl里加一个trace的入口
 
 ecall进入内核入口程序kernel/syscall.c
-首先在syscall.h中定义SYS_trace 22号调用，以及在.c完善向量表
+首先在syscall.h中定义SYS_trace 22号调用，以及在.c完善函数指针数组[SYS_trace] sys_trace 
 在proc结构体里面加一个mask，用于记录监视的系统调用号
 （xv6内核为每个进程维护许多状态片段，并将它们聚集到一个proc结构体中，例如页表pagetable）
 然后是sys_trace的具体实现。要在kernel/sysproc.c中去写，其实就是把当前a0放进mask（表明当前系统调用号）（不是很清楚）
