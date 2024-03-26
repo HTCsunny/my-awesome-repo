@@ -21,3 +21,6 @@ ecall进入内核入口程序kernel/syscall.c
 写好了实现，然后就是在syscall中声明sys_trace的外部定义,并在函数指针数组新增sys_trace
 
 最后在syscall函数里要输出监视的调用，所以需要添加一个数组，里面放着系统调用号对应的名字。
+
+注意：
+务必注意头文件include的次序，否则会大量报错未定义。。。
